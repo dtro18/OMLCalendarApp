@@ -11,10 +11,16 @@ import { ObjectId } from "mongodb";
 // The router will be added as a middleware and will take control of requests starting with path /record.
 const router = express.Router();
 
+// Database (db) is a container that holds collections
+// Collection is a grouping of documents (analogous to rows) 
+// Documents in a collection can have different structures or fields
+// Documents are individual pieces of data
+
 // This section will help you get a list of all the records.
 router.get("/", async (req, res) => {
   let collection = await db.collection("records");
   let results = await collection.find({}).toArray();
+  console.log(results)
   res.send(results).status(200);
 });
 
@@ -32,9 +38,9 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     let newDocument = {
-      name: req.body.name,
-      position: req.body.position,
-      level: req.body.level,
+      timeslot: req.body.timeslot,
+      instructorName: req.body.instructorName,
+      studentName: req.body.studentName,
     };
     let collection = await db.collection("records");
     let result = await collection.insertOne(newDocument);
@@ -51,9 +57,9 @@ router.patch("/:id", async (req, res) => {
     const query = { _id: new ObjectId(req.params.id) };
     const updates = {
       $set: {
-        name: req.body.name,
-        position: req.body.position,
-        level: req.body.level,
+        timeslot: req.body.timeslot,
+        instructorName: req.body.instructorName,
+        studentName: req.body.studentName
       },
     };
 
