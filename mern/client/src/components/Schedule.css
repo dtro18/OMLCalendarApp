@@ -1,0 +1,42 @@
+/* Assuming you have a container for your table */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full height of the viewport */
+  }
+
+
+  
+  table {
+    flex: 1; /* Allow the table to grow and fill the available space */
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Optional: to remove space between cells */
+  }
+  
+  thead {
+    background-color: #f8f9fa; /* Optional: light background for header */
+  }
+  
+  th, td {
+    padding: 16px; /* Add some padding */
+    border: 1px solid #dee2e6; /* Add borders */
+  }
+  
+  .timeslot-cell {
+    background-color: #ffffff; /* Change background color */
+    padding-top: 0;
+    padding-bottom: 31px;
+    vertical-align: top;
+    font-size: 12px;
+    }
+  tbody {
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+    display: block; /* Needed for scrolling to work */
+    height: calc(100% - 48px); /* Adjust height based on header height */
+  }
+  
+  tr {
+    display: table; /* Display as table row */
+    table-layout: fixed; /* Fix the layout */
+    width: 100%; /* Full width for the row */
+  }

@@ -91,9 +91,6 @@ export default function RecordList() {
                 <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
                   Instructor Name
                 </th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
-                  Student Name
-                </th>
               </tr>
             </thead>
             <tbody className="[&_tr:last-child]:border-0">
